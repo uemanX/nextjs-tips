@@ -1,4 +1,5 @@
 import { GetStaticProps, NextPage } from 'next';
+import { useRouter } from 'next/router';
 import { IPost } from '../../model';
 
 // importする順番をフォーマットしてくれるnodeを探す
@@ -20,6 +21,9 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 };
 
 const Posts: NextPage<Props> = (props: Props) => {
+  const router = useRouter();
+  console.log(router.query);
+
   return (
     <ul>
       {props.posts.map((post) => (

@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { useRouter } from 'next/router';
 import { IPost } from '../../model';
 
 type PageProps = {
@@ -32,6 +33,10 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 };
 
 const Post: NextPage<PageProps> = ({ post }: PageProps) => {
+  const router = useRouter();
+  console.log('router.query');
+  console.log(router.query);
+
   return (
     <ul>
       <li>{post.id}</li>

@@ -92,3 +92,6 @@ const Checkbox = ({ id, label, checked, disabled }: CheckboxProps) => {
 };
 
 export default Checkbox;
+
+// TODO:  タブキーによる移動もできるようにしたい
+// focusでできるようになるなか

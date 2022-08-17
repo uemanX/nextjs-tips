@@ -8,6 +8,7 @@ const CheckboxPage: NextPage = () => {
       <Checkbox />
       <Checkbox label="IDなし" />
       <Checkbox id="check" label="IDあり" />
+      <Checkbox id="disable" label="Disabled" checked disabled />
     </div>
   );
 };

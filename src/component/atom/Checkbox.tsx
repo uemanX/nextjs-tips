@@ -53,27 +53,37 @@ const StyledCheckbox = styled.span`
     border-right: 3px solid var(--green);
     border-bottom: 3px solid var(--green);
     transform-origin: center;
-    rotate: 45deg;
-    transform: scale(0);
+    transform: rotate(45deg) scale(0);
     transition-duration: var(--duration);
   }
 
   // チェック時にレ点を表示
   & > input:checked + span::after {
-    transform: scale(1);
+    transform: rotate(45deg) scale(1);
+  }
+
+  & > input:disabled {
+    pointer-events: none;
+  }
+
+  & > input:disabled + span::after,
+  & > input:disabled + span::before {
+    border-color: var(--gray);
   }
 `;
 
 type CheckboxProps = {
   id?: string;
   label?: string;
+  checked?: boolean;
+  disabled?: boolean;
 };
 
-const Checkbox = ({ id, label }: CheckboxProps) => {
+const Checkbox = ({ id, label, checked, disabled }: CheckboxProps) => {
   return (
     <CheckboxWrapper>
       <StyledCheckbox>
-        <input type="checkbox" id={id} />
+        <input type="checkbox" id={id} disabled={disabled} checked={checked} />
         <span></span>
       </StyledCheckbox>
       {label && <label htmlFor={id}>{label}</label>}

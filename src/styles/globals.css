@@ -14,5 +14,6 @@ body {
 
 :root {
   --green: #21b064;
+  --gray: #ccc;
   --duration: 100ms;
 }

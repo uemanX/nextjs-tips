@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const CheckboxWrapper = styled.div`
+const RadioWrapper = styled.div`
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -11,7 +11,7 @@ const CheckboxWrapper = styled.div`
   }
 `;
 
-const StyledCheckbox = styled.span`
+const StyledRadio = styled.span`
   position: relative;
 
   & > input {
@@ -38,60 +38,59 @@ const StyledCheckbox = styled.span`
     width: inherit;
     height: inherit;
     border: 3px solid var(--green);
-    border-radius: 5px;
+    border-radius: 50%;
   }
 
   // レ点
   & > span::after {
     content: "";
     display: block;
-    width: 7px;
-    height: 14px;
+    width: inherit;
+    height: inherit;
     position: absolute;
-    top: 5px;
-    left: 10px;
-    border-right: 3px solid var(--green);
-    border-bottom: 3px solid var(--green);
     transform-origin: center;
-    transform: rotate(45deg) scale(0);
+    transform: scale(0);
+    border-radius: 50%;
+    background: var(--green);
     transition-duration: var(--duration);
   }
 
-  // チェック時にレ点を表示
+  // チェック時に中丸を表示
   & > input:checked + span::after {
-    transform: rotate(45deg) scale(1);
+    transform: scale(0.5);
   }
 
   & > input:disabled {
     pointer-events: none;
   }
 
-  & > input:disabled + span::after,
   & > input:disabled + span::before {
     border-color: var(--gray);
   }
+
+  & > input:disabled + span::after {
+    background: var(--gray);
+  }
 `;
 
-type CheckboxProps = {
+type RadioProps = {
   id?: string;
   label?: string;
+  name?: string;
   checked?: boolean;
   disabled?: boolean;
 };
 
-const Checkbox = ({ id, label, checked, disabled }: CheckboxProps) => {
+const Radio = ({ id, label, name, checked, disabled }: RadioProps) => {
   return (
-    <CheckboxWrapper>
-      <StyledCheckbox>
-        <input type="checkbox" id={id} disabled={disabled} checked={checked} />
+    <RadioWrapper>
+      <StyledRadio>
+        <input type="radio" id={id} name={name} />
         <span></span>
-      </StyledCheckbox>
-      {label && <label htmlFor={id}>{label}</label>}
-    </CheckboxWrapper>
+      </StyledRadio>
+      <label htmlFor={id}>{label}</label>
+    </RadioWrapper>
   );
 };
 
-export default Checkbox;
-
-// TODO:  タブキーによる移動もできるようにしたい
-// focusでできるようになるなか
+export default Radio;

@@ -7,7 +7,7 @@ const SelectPage: NextPage = () => {
       <Select>
         {[...Array(30)].map((_, idx) => (
           <option key={idx} value={idx}>
-            {idx}
+            {`${idx}`}
           </option>
         ))}
       </Select>

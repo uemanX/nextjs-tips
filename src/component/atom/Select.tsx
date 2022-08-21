@@ -7,6 +7,7 @@ const SelectWrapper = styled.div`
   position: relative;
   width: 200px;
   height: 40px;
+  backtround-color: transparent;
 
   & > select {
     appearance: none;
@@ -15,6 +16,9 @@ const SelectWrapper = styled.div`
     padding: 0 5px;
     border: 1px solid #999;
     border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+    font-size: 16px;
   }
 `;
 

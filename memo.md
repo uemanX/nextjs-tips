@@ -1,8 +1,8 @@
 memo
 
-- Google Font を入れてみる
+- Google Font
 - Loading
 - StoryBook
 - BurgerMenu
 - Sidebar
-- python API
+- python API fastAPI

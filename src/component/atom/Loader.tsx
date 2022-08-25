@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 
-const LoaderWrapper = styled.div`
+const duration = 500;
+
+const Overlay = styled.div<{ open: boolean }>`
   position: fixed;
   display: flex;
   justify-content: center;
@@ -8,8 +10,10 @@ const LoaderWrapper = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-
-
+  opacity: ${({ open }) => (open ? 1 : 0)};
+  visibility: ${({ open }) => (open ? "visible" : "hidden")};;
+  transition: opacity ${duration}ms, visibility ${duration}ms;  
+  
   & > span {
     width: 33px;
     height: 33px;
@@ -25,11 +29,16 @@ const LoaderWrapper = styled.div`
   }
 `;
 
-const Loader = () => {
+type LoaderProps = {
+  open: boolean;
+  onClick?: () => void;
+};
+
+const Loader = ({ open, onClick }: LoaderProps) => {
   return (
-    <LoaderWrapper>
+    <Overlay open={open} onClick={onClick}>
       <span></span>
-    </LoaderWrapper>
+    </Overlay>
   );
 };
 

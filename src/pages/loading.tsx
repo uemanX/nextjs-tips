@@ -10,18 +10,13 @@ const Button = styled.button`
   background-color: #99d199;
 `;
 
-// TODO
-// opacity: 0;
-// visibility hidden;
-// 他のところをkリックしたら閉じる
-
 const LoadingPage: NextPage = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
       <Button onClick={() => setOpen(true)}>Show BackDrap</Button>
-      {open && <Loader />}
+      <Loader open={open} onClick={() => setOpen(false)} />
     </div>
   );
 };

@@ -25,7 +25,7 @@ const options: ChartOptions<"radar"> = {
       min: 0,
       max: 5,
       angleLines: {
-        display: false, // 中心から頂点に伸びる線の非表示
+        display: true, // 中心から頂点に伸びる線の非表示
       },
       grid: {
         display: false, // 中心から破門状に広がる線の非表示
@@ -39,6 +39,7 @@ const options: ChartOptions<"radar"> = {
           size: 12,
           family: "'Noto Sans JP'",
         },
+        color: "rgba(58, 166, 219, 1)",
       },
     },
   },
@@ -61,23 +62,53 @@ const initialData: ChartData<"radar"> = {
 
   datasets: [
     {
-      label: "outside fixed line",
-      data: [5, 5, 5, 5, 5, 5],
-      backgroundColor: "rgba(0, 0, 0, 0)",
-      borderColor: "rgba(129,	129	,129,	 1)",
-      order: 3,
-    },
-    {
-      label: "standard line",
-      data: [3, 3, 3, 3, 3, 3],
-      backgroundColor: "rgba(0, 0, 0, 0)",
-      borderColor: "rgba(157,	207,	231, 1)",
+      label: "data line",
+      data: [0, 0, 0, 0, 0],
+      backgroundColor: "rgba(255, 255, 255, 0.6)",
+      borderColor: "rgba(0, 0, 0, 0)",
+      pointRadius: 2,
+      pointBackgroundColor: "rgba(255, 255, 255, 1)",
       order: 1,
     },
     {
-      label: "data line",
-      data: [0, 0, 0, 0, 0],
-      backgroundColor: "rgba(252,	205,	196, 0.7)",
+      label: "1st side",
+      data: [5, 5, 0, 0, 0, 0],
+      backgroundColor: "rgba(210, 236, 246, 1)",
+      borderColor: "rgba(0, 0, 0, 0)",
+      order: 2,
+    },
+    {
+      label: "2st side",
+      data: [0, 5, 5, 0, 0, 0],
+      backgroundColor: "rgba(168, 212, 234, 1)",
+      borderColor: "rgba(0, 0, 0, 0)",
+      order: 2,
+    },
+    {
+      label: "3st side",
+      data: [0, 0, 5, 5, 0, 0],
+      backgroundColor: "rgba(112, 177, 209, 1)",
+      borderColor: "rgba(0, 0, 0, 0)",
+      order: 2,
+    },
+    {
+      label: "4st side",
+      data: [0, 0, 0, 5, 5, 0],
+      backgroundColor: "rgba(168, 212, 234, 1)",
+      borderColor: "rgba(0, 0, 0, 0)",
+      order: 2,
+    },
+    {
+      label: "5st side",
+      data: [0, 0, 0, 0, 5, 5],
+      backgroundColor: "rgba(210, 236, 246, 1)",
+      borderColor: "rgba(0, 0, 0, 0)",
+      order: 2,
+    },
+    {
+      label: "6st side",
+      data: [5, 0, 0, 0, 0, 5],
+      backgroundColor: "rgba(234, 248, 253, 1)",
       borderColor: "rgba(0, 0, 0, 0)",
       order: 2,
     },
@@ -94,7 +125,8 @@ type RadarChartProps = {
 
 const RadarChart = ({ buildingData }: RadarChartProps) => {
   const updateData = produce(initialData, (draft) => {
-    draft.datasets[2].data = buildingData;
+    // draft.datasets[2].data = buildingData;
+    draft.datasets[0].data = buildingData;
   });
 
   return (

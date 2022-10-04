@@ -22,7 +22,7 @@ const Content = styled.section`
 const SampleDataSet = [
   {
     label: "",
-    data: [5, 2, 2, 4, 4, 3],
+    data: [3, 5.7, 2, 5.7, 4, 3],
   },
   {
     label: "評価１",
@@ -43,6 +43,10 @@ const SampleDataSet = [
   {
     label: "評価5",
     data: [5, 5, 5, 5, 5, 5],
+  },
+  {
+    label: "評価5.7",
+    data: [5.7, 5.7, 5.7, 5.7, 5.7, 5.7],
   },
 ];
 

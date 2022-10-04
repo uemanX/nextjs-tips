@@ -23,9 +23,9 @@ const options: ChartOptions<"radar"> = {
   scales: {
     r: {
       min: 0,
-      max: 5,
+      max: 5.7,
       angleLines: {
-        display: true, // 中心から頂点に伸びる線の非表示
+        display: false, // 中心から頂点に伸びる線の非表示
       },
       grid: {
         display: false, // 中心から破門状に広がる線の非表示
@@ -117,6 +117,7 @@ const initialData: ChartData<"radar"> = {
 
 const Wrapper = styled.div`
   width: 100%;
+  background-color: #f0f0f0;
 `;
 
 type RadarChartProps = {

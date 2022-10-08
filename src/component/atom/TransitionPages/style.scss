@@ -1,0 +1,71 @@
+// var(--page-transition-duration);
+
+.transition-group-wrapper {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.transition-group-wrapper.no-scrolling {
+  position: absolute;
+  overflow: hidden;
+}
+
+.transition-page {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* # =================================================================
+   # 下から上にスライドする設定
+   # ================================================================= */
+.slide-up {
+  .slide-enter {
+    position: absolute;
+    transform: translateY(100%);
+  }
+
+  .slide-enter.slide-enter-active {
+    transform: translateY(0%);
+    transition: transform ease-out 1000ms;
+  }
+
+  .slide-exit {
+    position: absolute;
+    transform: translateY(0%);
+  }
+
+  .slide-exit.slide-exit-active {
+    transform: translateY(-100%);
+    transition: transform ease-out 1000ms;
+  }
+}
+
+/* # =================================================================
+   # 上から下にスライドする設定
+   # ================================================================= */
+.slide-down {
+  .slide-enter {
+    position: absolute;
+    transform: translateY(-100%);
+  }
+
+  .slide-enter.slide-enter-active {
+    transform: translateY(0%);
+    transition: transform ease-out 1000ms;
+  }
+
+  .slide-exit {
+    position: absolute;
+    transform: translateY(0%);
+  }
+
+  .slide-exit.slide-exit-active {
+    transform: translateY(100%);
+    transition: transform ease-out 1000ms;
+  }
+}

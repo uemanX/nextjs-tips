@@ -1,11 +1,10 @@
-// var(--page-transition-duration);
-
 .transition-group-wrapper {
   position: relative;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  min-height: 100vh;
 }
 .transition-group-wrapper.no-scrolling {
   position: absolute;
@@ -24,24 +23,24 @@
    # 下から上にスライドする設定
    # ================================================================= */
 .slide-up {
-  .slide-enter {
+  .slider-enter {
     position: absolute;
     transform: translateY(100%);
   }
 
-  .slide-enter.slide-enter-active {
+  .slider-enter.slider-enter-active {
     transform: translateY(0%);
-    transition: transform ease-out 1000ms;
+    transition: transform ease-out var(--page-transition-duration);
   }
 
-  .slide-exit {
+  .slider-exit {
     position: absolute;
     transform: translateY(0%);
   }
 
-  .slide-exit.slide-exit-active {
+  .slider-exit.slider-exit-active {
     transform: translateY(-100%);
-    transition: transform ease-out 1000ms;
+    transition: transform ease-out var(--page-transition-duration);
   }
 }
 
@@ -49,23 +48,23 @@
    # 上から下にスライドする設定
    # ================================================================= */
 .slide-down {
-  .slide-enter {
+  .slider-enter {
     position: absolute;
     transform: translateY(-100%);
   }
 
-  .slide-enter.slide-enter-active {
+  .slider-enter.slider-enter-active {
     transform: translateY(0%);
-    transition: transform ease-out 1000ms;
+    transition: transform ease-out var(--page-transition-duration);
   }
 
-  .slide-exit {
+  .slider-exit {
     position: absolute;
     transform: translateY(0%);
   }
 
-  .slide-exit.slide-exit-active {
+  .slider-exit.slider-exit-active {
     transform: translateY(100%);
-    transition: transform ease-out 1000ms;
+    transition: transform ease-out var(--page-transition-duration);
   }
 }

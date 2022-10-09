@@ -1,7 +1,7 @@
 html,
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
 }
 
 *,
@@ -17,4 +17,5 @@ body {
   --blue: #0051ff;
   --gray: #ccc;
   --duration: 100ms;
+  --page-transition-duration: 1000ms;
 }

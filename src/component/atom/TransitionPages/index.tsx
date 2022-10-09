@@ -1,6 +1,6 @@
 // import styles from './style.module.scss';
 
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
 
@@ -26,17 +26,24 @@ type TransitionPagesProps = {
 
 const TransitionPages = (props: TransitionPagesProps) => {
   const { currentPage, transitionAction, children } = props;
+  const [entering, setEntering] = useState(false);
 
   return (
     <div
       className={classNames('transition-group-wrapper', {
         'slide-up': transitionAction === TransitionAction.up,
         'slide-down': transitionAction === TransitionAction.down,
-        // 'no-scrolling': entering,
+        'no-scrolling': entering,
       })}
     >
       <TransitionGroup component={null}>
-        <CSSTransition classNames="slide" key={currentPage} timeout={1}>
+        <CSSTransition
+          classNames="slider"
+          key={currentPage}
+          timeout={1000}
+          onEnter={() => setEntering(true)}
+          onExited={() => setEntering(false)}
+        >
           <div className="transition-page">{children}</div>
         </CSSTransition>
       </TransitionGroup>

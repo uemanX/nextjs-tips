@@ -68,3 +68,53 @@
     transition: transform ease-out var(--page-transition-duration);
   }
 }
+
+/* # =================================================================
+   # 左から右にスライドする設定
+   # ================================================================= */
+.slide-right {
+  .slider-enter {
+    position: absolute;
+    transform: translateX(-100%);
+  }
+
+  .slider-enter.slider-enter-active {
+    transform: translateX(0%);
+    transition: transform ease-out var(--page-transition-duration);
+  }
+
+  .slider-exit {
+    position: absolute;
+    transform: translateX(0%);
+  }
+
+  .slider-exit.slider-exit-active {
+    transform: translateX(100%);
+    transition: transform ease-out var(--page-transition-duration);
+  }
+}
+
+/* # =================================================================
+   # 右から左にスライドする設定
+   # ================================================================= */
+.slide-left {
+  .slider-enter {
+    position: absolute;
+    transform: translateX(100%);
+  }
+
+  .slider-enter.slider-enter-active {
+    transform: translateX(0%);
+    transition: transform ease-out var(--page-transition-duration);
+  }
+
+  .slider-exit {
+    position: absolute;
+    transform: translateX(0%);
+  }
+
+  .slider-exit.slider-exit-active {
+    transform: translateX(-100%);
+    transition: transform ease-out var(--page-transition-duration);
+  }
+}

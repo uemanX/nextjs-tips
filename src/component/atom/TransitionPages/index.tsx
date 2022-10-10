@@ -14,6 +14,8 @@ export type PageNameType = typeof PageName[keyof typeof PageName];
 export const TransitionAction = {
   up: 'up',
   down: 'down',
+  left: 'left',
+  right: 'right',
   none: 'none',
 } as const;
 export type TransitionActionType = typeof TransitionAction[keyof typeof TransitionAction];
@@ -33,6 +35,8 @@ const TransitionPages = (props: TransitionPagesProps) => {
       className={classNames('transition-group-wrapper', {
         'slide-up': transitionAction === TransitionAction.up,
         'slide-down': transitionAction === TransitionAction.down,
+        'slide-left': transitionAction === TransitionAction.left,
+        'slide-right': transitionAction === TransitionAction.right,
         'no-scrolling': entering,
       })}
     >

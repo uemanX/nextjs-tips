@@ -14,7 +14,6 @@ const Container = styled.div`
   height: 100%;
   margin: 0 auto;
   border: 1px solid #ccc;
-  box-shadow: 1px 1px;
 `;
 
 const PageBase = styled.div`
@@ -104,6 +103,26 @@ const TransitionPage: NextPage = () => {
             />
             <label htmlFor="down">上から下に遷移</label>
           </Group>
+          <Group>
+            <input
+              type="radio"
+              name="transition"
+              id="left"
+              value={TransitionAction.left}
+              onChange={handleOnChangeTransitionType('left')}
+            />
+            <label htmlFor="left">右から左に遷移</label>
+          </Group>
+          <Group>
+            <input
+              type="radio"
+              name="transition"
+              id="right"
+              value={TransitionAction.right}
+              onChange={handleOnChangeTransitionType('right')}
+            />
+            <label htmlFor="right">左から右に遷移</label>
+          </Group>
         </SelectArea>
         <SelectArea>
           <h2>ページに遷移する</h2>
@@ -119,8 +138,6 @@ const TransitionPage: NextPage = () => {
             </button>
           </Group>
         </SelectArea>
-
-        {/* <button>ページ１を表示</button> */}
       </FixedArea>
     </Container>
   );
